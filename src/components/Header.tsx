@@ -5,12 +5,13 @@ import { changeLocalStorage } from '../services/storage'
 import { AppContext } from './AppContext'
 
 export const Header  = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(AppContext)
+  const { isLoggedIn, setIsLoggedIn, setUser } = useContext(AppContext)
   const navigate = useNavigate()
 
   const logout = () => {
-    changeLocalStorage({ login: false})
-    setIsLoggedIn(false)
+    changeLocalStorage({ login: false, user: null})
+    setIsLoggedIn(false);
+    setUser(null);
     navigate('/')
   }
 
